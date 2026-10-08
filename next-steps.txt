@@ -1,0 +1,4 @@
+1. Install Java SDK and Android Studio.
+2. Open the android folder in Android Studio and run the app.
+3. Open the ios folder in Xcode to build the iOS app.
+4. Replace the placeholder web content with the full BharatBus web UI when ready.

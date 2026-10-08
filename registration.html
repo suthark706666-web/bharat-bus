@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | BharatBus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <div class="login-shell">
+      <div class="login-card">
+        <div class="login-brand">
+          <span class="login-logo-icon" aria-hidden="true">♞</span>
+          <a class="brand" href="index.html">BharatBus</a>
+        </div>
+
+        <h1>Create account</h1>
+        <p>Register as a BharatBus customer.</p>
+
+        <form id="registrationForm" class="auth-form">
+          <label>
+            Full name
+            <input type="text" id="fullName" placeholder="Enter your full name" required />
+          </label>
+          <label>
+            Customer ID
+            <input type="text" id="newCustomerId" placeholder="BB-CUST-1002" required />
+          </label>
+          <label>
+            Phone number
+            <input type="tel" id="phone" placeholder="10-digit mobile number" required />
+          </label>
+          <label>
+            Email address
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Password
+            <input type="password" id="newPassword" placeholder="Create password" required />
+          </label>
+          <label>
+            Confirm password
+            <input type="password" id="confirmPassword" placeholder="Confirm password" required />
+          </label>
+          <div class="auth-actions">
+            <button type="submit">Register</button>
+            <button type="button" id="clearReg" class="cancel-login">Cancel</button>
+          </div>
+        </form>
+
+        <p class="helper-text">Already have an account? <a href="login.html">Login here</a></p>
+        <p id="registrationMessage" class="auth-message" role="status"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      const registrationForm = document.getElementById('registrationForm');
+      const registrationMessage = document.getElementById('registrationMessage');
+      const clearReg = document.getElementById('clearReg');
+
+      clearReg.addEventListener('click', () => {
+        registrationForm.reset();
+        registrationMessage.textContent = '';
+      });
+
+      registrationForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const customerId = document.getElementById('newCustomerId').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('newPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (!fullName || !customerId || !phone || !email || !password || !confirmPassword) {
+          registrationMessage.textContent = 'Please fill in all fields.';
+          return;
+        }
+
+        if (password.length < 6) {
+          registrationMessage.textContent = 'Password should be at least 6 characters.';
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          registrationMessage.textContent = 'Passwords do not match.';
+          return;
+        }
+
+        const existingCustomers = JSON.parse(localStorage.getItem('bharatBusCustomers') || '[]');
+        const customerExists = existingCustomers.some((customer) => customer.customerId === customerId || customer.email === email);
+
+        if (customerExists) {
+          registrationMessage.textContent = 'This customer ID or email is already registered.';
+          return;
+        }
+
+        const newCustomer = {
+          fullName,
+          customerId,
+          phone,
+          email,
+          password,
+        };
+
+        existingCustomers.push(newCustomer);
+        localStorage.setItem('bharatBusCustomers', JSON.stringify(existingCustomers));
+        localStorage.setItem('bharatBusUser', JSON.stringify({ customerId, name: fullName }));
+
+        registrationMessage.textContent = 'Registration successful. Redirecting...';
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

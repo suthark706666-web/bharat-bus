@@ -1,0 +1,777 @@
+:root {
+  --bg: #f5f7ff;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #f59e0b;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: linear-gradient(rgba(15, 23, 42, 0.72), rgba(37, 99, 235, 0.72)), url('Volvo_01.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  color: white;
+  padding-bottom: 4rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 0;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  opacity: 0.95;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-left: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.92rem;
+  border: 1px solid rgba(255,255,255,0.55);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+}
+
+.social-link.instagram {
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+}
+
+.social-link.whatsapp {
+  background: #25d366;
+}
+
+.social-link.facebook {
+  background: #1877f2;
+}
+
+.login-social-links {
+  margin: 0.75rem 0 1rem;
+  justify-content: center;
+}
+
+.login-social-links .social-link {
+  color: white;
+  border-color: rgba(255,255,255,0.1);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.4fr 0.8fr;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0.4rem 0 1rem;
+  line-height: 1.1;
+}
+
+.hero-text {
+  font-size: 1.05rem;
+  max-width: 600px;
+  opacity: 0.95;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.16);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge.alt {
+  background: #dbeafe;
+  color: var(--primary-dark);
+}
+
+.search-box {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.search-box input,
+.search-box button {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 0;
+  font: inherit;
+}
+
+.search-box button {
+  background: var(--accent);
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.95);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 1.4rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.hero-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.hero-card ul {
+  padding-left: 1rem;
+}
+
+.section {
+  padding: 4rem 0 0;
+}
+
+.section-heading {
+  margin-bottom: 1.3rem;
+}
+
+.section-heading h2 {
+  margin: 0.4rem 0 0;
+  font-size: 1.7rem;
+}
+
+.route-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.route-card,
+.result-card,
+.features article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.results {
+  display: grid;
+  gap: 1rem;
+}
+
+.result-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.result-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.route-date {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.book-btn,
+.confirm-btn,
+.ticket-btn {
+  border: 0;
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  border: 0;
+  background: #dc2626;
+  color: white;
+  padding: 0.72rem 0.95rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.book-btn:hover,
+.confirm-btn:hover,
+.ticket-btn:hover,
+.search-box button:hover {
+  background: var(--primary-dark);
+}
+
+.cancel-btn:hover {
+  background: #991b1b;
+}
+
+.booking-panel {
+  margin-top: 1rem;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.sleeper-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0.8rem 0;
+}
+
+.sleeper-block {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.8rem;
+}
+
+.sleeper-title {
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 0.6rem;
+}
+
+.seat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.payment-options {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.8rem 0;
+}
+
+.traveler-form {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.8rem 0;
+}
+
+.traveler-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.traveler-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  font: inherit;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.payment-option.active {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+.seat-btn {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.seat-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.success {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.sms-card {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  background: #111827;
+  color: white;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sms-card strong {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.photo-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.availability-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.availability-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.55rem 0 0.9rem;
+}
+
+.feature-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 0.74rem;
+  font-weight: 800;
+  border: 1px solid #c7d2fe;
+}
+
+.availability-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.24rem 0.7rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.admin-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.admin-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.admin-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.55rem;
+}
+
+.admin-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.features {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-bottom: 4rem;
+}
+
+.auth-page {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(15, 23, 42, 0.78), rgba(37, 99, 235, 0.86)), url('Volvo_01.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.login-shell {
+  width: min(460px, 100%);
+}
+
+.login-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.login-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 1.26rem;
+  font-weight: 900;
+}
+
+.login-card .brand {
+  color: var(--text);
+  font-size: 1.45rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.password-view-row {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.password-view-row input {
+  width: auto;
+}
+
+.auth-form input,
+.auth-form button {
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  font: inherit;
+}
+
+.auth-form button {
+  background: var(--primary);
+  color: white;
+  border: 0;
+  cursor: pointer;
+}
+
+.auth-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.auth-actions button {
+  width: 100%;
+}
+
+.auth-actions .cancel-login {
+  background: #dc2626;
+}
+
+.auth-actions .cancel-login:hover {
+  background: #991b1b;
+}
+
+.auth-message {
+  min-height: 1.4rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.helper-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.helper-text a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-link {
+  margin-top: 0.5rem;
+}
+
+.bookings-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.booking-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+.payment-panel,
+.payment-history-list,
+.ticket-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.payment-summary-card,
+.ticket-card,
+.payment-history-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+.payment-summary-top,
+.ticket-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payment-summary-grid,
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.payment-status-badge,
+.ticket-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.transaction-id,
+.ticket-id {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.ticket-title {
+  display: block;
+  font-size: 1.12rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+}
+
+.summary-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.summary-value {
+  display: block;
+  margin-top: 0.28rem;
+  font-weight: 700;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.ticket-empty {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  color: var(--muted);
+}
+
+.payment-history-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+.payment-history-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.payment-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.36rem 0.75rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .route-grid,
+  .features,
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-box {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .result-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

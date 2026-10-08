@@ -1,0 +1,6 @@
+{
+  "appId": "com.bharatbus.app",
+  "appName": "BharatBus",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

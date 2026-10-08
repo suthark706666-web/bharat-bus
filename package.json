@@ -1,0 +1,13 @@
+{
+  "name": "bharatbus-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "echo 'Open the www folder in a mobile browser or package with Capacitor'"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3"
+  }
+}

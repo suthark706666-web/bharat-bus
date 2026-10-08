@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BharatBus | Book Bus Tickets</title>
+    <meta name="description" content="Fast and easy bus ticket booking for your next journey." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <a class="brand" href="#">
+          <img class="brand-logo" src="Volvo_01.jpg" alt="BharatBus" />
+          <span>BharatBus</span>
+        </a>
+        <div class="nav-links">
+          <a href="#routes">Routes</a>
+          <a href="#features">Features</a>
+          <a href="#booking">Book</a>
+          <a id="authLink" href="login.html">Login</a>
+        </div>
+        <div class="social-links" aria-label="Social links">
+          <a class="social-link instagram" href="#" aria-label="Instagram">◎</a>
+          <a class="social-link whatsapp" href="#" aria-label="WhatsApp">✆</a>
+          <a class="social-link facebook" href="#" aria-label="Facebook">f</a>
+        </div>
+      </nav>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="badge">Trusted by 2M+ travellers</p>
+          <h1>Book your bus ticket in minutes.</h1>
+          <p class="hero-text">
+            Travel across cities with safe, affordable, and comfortable bus journeys.
+          </p>
+          <form id="searchForm" class="search-box">
+            <input type="text" id="from" placeholder="From" required />
+            <input type="text" id="to" placeholder="To" required />
+            <input type="date" id="date" />
+            <input type="number" id="travellers" min="1" max="6" value="1" required />
+            <button type="submit">Search Buses</button>
+          </form>
+        </div>
+
+        <div class="hero-card">
+          <img
+            src="Volvo_01.jpg"
+            alt="Indian bus travel"
+          />
+          <h3>Why BharatBus?</h3>
+          <ul>
+            <li>Instant e-ticket confirmation</li>
+            <li>Live seat availability</li>
+            <li>Flexible cancellation options</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="routes" class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Popular routes</p>
+          <h2>Choose your next destination</h2>
+        </div>
+        <div class="route-grid">
+          <article class="route-card">
+            <h3>Delhi → Jaipur</h3>
+            <p>8 buses available today</p>
+          </article>
+          <article class="route-card">
+            <h3>Mumbai → Pune</h3>
+            <p>12 buses available today</p>
+          </article>
+          <article class="route-card">
+            <h3>Bengaluru → Hyderabad</h3>
+            <p>6 buses available today</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="booking" class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Bus availability</p>
+          <h2>Available buses for your trip</h2>
+        </div>
+        <div id="results" class="results"></div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Your bookings</p>
+          <h2>Recent ticket activity</h2>
+        </div>
+        <div id="bookingsList" class="bookings-list"></div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Payments</p>
+          <h2>Payment status</h2>
+        </div>
+        <div id="paymentPanel" class="payment-panel"></div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Online payments</p>
+          <h2>Payment history</h2>
+        </div>
+        <div id="paymentHistoryList" class="payment-history-list"></div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Digital ticket</p>
+          <h2>Generated ticket</h2>
+        </div>
+        <div id="ticketPanel" class="ticket-panel"></div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Indian travel moments</p>
+          <h2>Travel across the country with comfort</h2>
+        </div>
+        <div class="photo-grid">
+          <img src="kailash.jpg" alt="Bus route in India" />
+          <img src="images.jpg" alt="Comfortable Indian bus travel" />
+          <img src="images (1).jpg" alt="Indian bus journey" />
+        </div>
+      </section>
+
+      <section class="container section">
+        <div class="section-heading">
+          <p class="badge alt">Administration</p>
+          <h2>Admin Management</h2>
+        </div>
+        <div class="admin-grid">
+          <article class="admin-card">
+            <h3>Bus Management</h3>
+            <p>Administrators can add, update, and remove bus information.</p>
+          </article>
+          <article class="admin-card">
+            <h3>Route Management</h3>
+            <p>Administrators can manage routes, schedules, and fares.</p>
+          </article>
+          <article class="admin-card">
+            <h3>Seat Management</h3>
+            <p>Administrators can manage seat-related information.</p>
+          </article>
+          <article class="admin-card">
+            <h3>User Management</h3>
+            <p>Administrators can view and manage registered users.</p>
+          </article>
+          <article class="admin-card">
+            <h3>Booking Management</h3>
+            <p>Administrators can monitor and manage ticket bookings.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="container section features">
+        <article>
+          <h3>Easy booking</h3>
+          <p>Reserve seats in a few taps with a smooth booking flow.</p>
+        </article>
+        <article>
+          <h3>Safe payments</h3>
+          <p>Secure online payments with instant receipts.</p>
+        </article>
+        <article>
+          <h3>24/7 support</h3>
+          <p>Help is always available for schedule changes and travel queries.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

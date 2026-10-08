@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | BharatBus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <div class="login-shell">
+      <div class="login-card">
+        <div class="login-brand">
+          <span class="login-logo-icon" aria-hidden="true">♞</span>
+          <a class="brand" href="index.html">BharatBus</a>
+        </div>
+        <div class="social-links login-social-links" aria-label="Social links">
+          <a class="social-link instagram" href="#" aria-label="Instagram">◎</a>
+          <a class="social-link whatsapp" href="#" aria-label="WhatsApp">✆</a>
+          <a class="social-link facebook" href="#" aria-label="Facebook">f</a>
+        </div>
+        <h1>Welcome back</h1>
+        <p>Login to book your bus tickets and track your trips.</p>
+
+        <form id="loginForm" class="auth-form">
+          <label>
+            Customer ID
+            <input type="text" id="customerId" placeholder="Enter customer ID" required />
+          </label>
+          <label>
+            Password
+            <input type="password" id="password" placeholder="Enter password" required />
+          </label>
+          <label class="password-view-row">
+            <input type="checkbox" id="showPassword" /> Show password
+          </label>
+          <div class="auth-actions">
+            <button type="submit">Login</button>
+            <button type="button" id="cancelLogin" class="cancel-login">Cancel</button>
+          </div>
+        </form>
+
+        <p class="helper-text">Official login: BB-CUST-1001 / BharatBus@123</p>
+        <p class="helper-text register-link"><a href="registration.html">Create new customer account</a></p>
+        <p id="loginMessage" class="auth-message" role="status"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      const loginForm = document.getElementById('loginForm');
+      const loginMessage = document.getElementById('loginMessage');
+      const cancelLogin = document.getElementById('cancelLogin');
+      const showPassword = document.getElementById('showPassword');
+      const passwordInput = document.getElementById('password');
+      const validUsers = {
+        'BB-CUST-1001': 'BharatBus@123',
+      };
+
+      showPassword.addEventListener('change', () => {
+        passwordInput.type = showPassword.checked ? 'text' : 'password';
+      });
+
+      cancelLogin.addEventListener('click', () => {
+        loginForm.reset();
+        loginMessage.textContent = '';
+        localStorage.removeItem('bharatBusUser');
+      });
+
+      loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const customerId = document.getElementById('customerId').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (!customerId || !password) {
+          loginMessage.textContent = 'Please enter both customer ID and password.';
+          return;
+        }
+
+        if (validUsers[customerId] && validUsers[customerId] === password) {
+          localStorage.setItem('bharatBusUser', JSON.stringify({ customerId, name: customerId }));
+          loginMessage.textContent = 'Login successful. Redirecting...';
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 500);
+        } else {
+          loginMessage.textContent = 'Invalid customer ID or password.';
+        }
+      });
+    </script>
+  </body>
+</html>
